@@ -2,6 +2,10 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Opening from './opening'
+import Imgtest from './imgtest'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   const [count, setCount] = useState(0)
@@ -9,6 +13,13 @@ function App() {
   return (
     <>
       <div>
+        <Router>
+            <Link to="/imgtest">Go to ImgTest</Link>
+          <Routes>
+            <Route path="/imgtest" element={<Imgtest/>} />
+          </Routes>
+        </Router>
+        <Opening/>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>

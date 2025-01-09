@@ -40,3 +40,113 @@
 .read-the-docs {
   color: #888;
 }
+
+
+/* Opening */
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+.stars {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.star {
+  background-color: #000;
+  width: calc(100% / 4);
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: 300ms;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.star::before {
+  content: "";
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  display: block;
+  top: 0px;
+  left: 0px;
+  box-shadow: 16px 16px 32px rgba(0, 0, 0, 0.5) inset,
+    -16px -16px 32px rgba(0, 0, 0, 0.5) inset;
+  z-index: 2;
+}
+
+.star img {
+  width: 450px;
+  height: 450px;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+}
+
+.star h2 {
+  position: absolute;
+  font-size: 64px;
+  font-weight: 300;
+  font-family: sans-serif;
+  color: #fff;
+  z-index: 3;
+  letter-spacing: 4px;
+  top: 128px;
+  transform: rotate(90deg);
+}
+
+.star.expanded {
+  width: calc(100% / 2);
+}
+
+.star button {
+  position: absolute;
+  z-index: 3;
+  width: calc(100% - 32px);
+  height: 60px;
+  border-radius: 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border: 0px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  transition: 350ms linear;
+}
+
+.star button:hover {
+  background: #fff;
+  color: #222;
+}
+
+.star.expanded h2 {
+  animation: rotateText 250ms linear forwards;
+}
+
+.star.expanded button {
+  display: flex;
+}
+
+@keyframes rotateText {
+  0% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    font-size: 45px;
+  }
+}
